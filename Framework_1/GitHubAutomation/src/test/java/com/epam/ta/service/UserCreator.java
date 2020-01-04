@@ -1,0 +1,21 @@
+package com.epam.ta.service;
+
+import com.epam.ta.model.User;
+
+public class UserCreator {
+
+    public static final String TESTDATA_USER_NAME = "testdata.testcase1.user.name";
+    public static final String TESTDATA_USER_PASSWORD = "testdata.testcase1.user.password";
+
+    public static final String TESTDATA_INCORRECT_USER_NAME = "testdata.testcase2.user.name";
+
+    public static User withCredentialsFromProperty(){
+        return new User(TestDataReader.getTestData(TESTDATA_USER_NAME),
+                TestDataReader.getTestData(TESTDATA_USER_PASSWORD));
+    }
+
+    public static User withIncorrectUsername(){
+        return new User(TestDataReader.getTestData(TESTDATA_INCORRECT_USER_NAME),
+                null);
+    }
+}
